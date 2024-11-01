@@ -1,11 +1,14 @@
 import { View, Text, TextInput,StyleSheet } from 'react-native'
 import React, { useEffect } from 'react'
-import { useNavigation } from 'expo-router'
+import { useNavigation, useRouter } from 'expo-router'
 import { Colors } from './../../../constants/Colors';
+import { TouchableOpacity } from 'react-native';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function SignIn() {
 
     const navigation = useNavigation();
+    const router = useRouter();
 
     useEffect(() => {
         navigation.setOptions({
@@ -14,12 +17,13 @@ export default function SignIn() {
     }, [])
 
   return (
+    <View style={{ height: '100%',backgroundColor: Colors.WHITE }}>
     <View style={{
         padding: 25,
-        marginTop: 80,
-        backgroundColor: Colors.WHITE,
-        height: '100%',
+        marginTop: 40,
     }}>
+        <TouchableOpacity onPress={() => router.back()}><Ionicons name="arrow-back" size={24} color="black" />
+        </TouchableOpacity>
       <Text style={{ 
         textAlign: 'center',
         fontFamily: 'outfit-bold',
@@ -65,6 +69,43 @@ export default function SignIn() {
             placeholder='Enter Password'></TextInput>
         </View>
 
+        <View style={{ 
+            
+            marginTop: 50, 
+            backgroundColor: Colors.PRIMARY,
+            padding: 20,
+            borderRadius: 15
+            }}>
+            <Text style={{ 
+                fontFamily: 'outfit',
+                color: Colors.WHITE,
+                textAlign: 'center' 
+
+            }}>Sign In</Text>
+        </View>
+
+
+        <TouchableOpacity
+            onPress={() => {
+                router.replace('/auth/sign-up');
+            }}
+        style={{ 
+            
+            marginTop: 20, 
+            backgroundColor: Colors.WHITE,
+            padding: 20,
+            borderRadius: 15,
+            borderWidth: 1,
+            }}>
+            <Text style={{ 
+                fontFamily: 'outfit',
+                color: Colors.PRIMARY,
+                textAlign: 'center' 
+
+            }}>Create Account</Text>
+        </TouchableOpacity>
+
+    </View>
     </View>
 
   )
