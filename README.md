@@ -44,7 +44,12 @@ A Flutter application that helps users plan their trips using AI assistance. The
    - Add your `google-services.json` to `android/app`
    - Add your `GoogleService-Info.plist` to `ios/Runner`
 
-4. Run the app:
+4. Configure API Keys:
+   - For Android: Replace `YOUR_GOOGLE_MAPS_API_KEY` in `android/app/src/main/AndroidManifest.xml`
+   - For iOS: Replace `YOUR_FIREBASE_IOS_API_KEY` in `ios/Runner/GoogleService-Info.plist`
+   - For Android Firebase: Replace `YOUR_FIREBASE_API_KEY` in `android/app/google-services.json`
+
+5. Run the app:
    ```bash
    flutter run
    ```
@@ -74,6 +79,20 @@ A Flutter application that helps users plan their trips using AI assistance. The
 - Dart: Latest stable version
 - Android SDK: 21 or higher
 - iOS: 11.0 or higher
+
+## Security Note
+
+When setting up the project, ensure all API keys are properly secured and not committed to version control. Use environment variables or secure key management solutions to handle sensitive credentials.
+
+Required keys and their locations:
+- Google Maps API key
+  - Android: `android/app/src/main/AndroidManifest.xml`
+  - iOS: Add to AppDelegate.swift
+- Firebase configuration keys
+  - Android: `android/app/google-services.json`
+  - iOS: `ios/Runner/GoogleService-Info.plist`
+
+Note: The above files containing API keys are added to .gitignore to prevent accidental commits.
 
 ## License
 
